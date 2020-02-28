@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World</title>
+        <script type="text/javascript" src="js/vue.js"></script>
+      
+        <style>
+            .active{
+                color: blue;
+            }
+        </style>
+    </head>
+
+    <body>
+       
+        <ol id="components-demo">
+            <!--Injection de composant myItem-->
+            <!--On lie car avec carItem avec bind-->
+            <!--Pour v-for, obligatoriamente binding de key-->
+            <!--<my-item
+                v-for="carItem in myListOfCars"
+                
+                v-bind:car="carItem"
+            
+                v-bind:key="carItem.id">
+            <my-item>-->
+            <div v-bind:class="{active:isActive}">Bind css class active</div>
+            <div v-bind:style="{color:activeColor, fontSize: fontSize + 'px'}">Bind css style</div>
+
+        </ol>
+
+    <script type="text/javascript">
+    //Definition de composant my-item
+    /*Vue.component('my-item', {
+        //proprietes internes du composant
+        props:['car'],
+        //definition de l'affichage
+        template: '<li>Component of {{car.name}}</li>'
+    })*/
+
+    new Vue({
+        el: '#components-demo',
+        data: {
+            /*myListOfCars: [
+                {id:1, name:'Ferrari'},
+                {id:2, name:'McLaren'},
+                {id:5, name:'Mercedes'}
+            ],*/
+
+            isActive: true,
+            activeColor: 'red',
+            fontSize:30
+        }
+    })
+
+    
+    </script>
+    </body>
+</html>

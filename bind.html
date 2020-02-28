@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World</title>
+        <script type="text/javascript" src="js/vue.js"></script>
+      
+        <style>
+            .active{
+                color: blue;
+            }
+        </style>
+    </head>
+
+    <body>
+       
+        <ol id="components-demo">
+           
+            <div v-bind:class="{active:isActive}">Bind css class active</div>
+            <div v-bind:style="{color:activeColor, fontSize: fontSize + 'px'}">Bind css style</div>
+
+        </ol>
+
+    <script type="text/javascript">
+    
+
+    new Vue({
+        el: '#components-demo',
+        data: {
+            isActive: true,
+            activeColor: 'red',
+            fontSize:30
+        }
+    })
+
+    
+    </script>
+    </body>
+</html>

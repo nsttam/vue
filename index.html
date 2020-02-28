@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World</title>
+        <script type="text/javascript" src="js/vue.js"></script>
+
+    </head>
+
+    <body>
+    
+    <div id="app">
+    <h2>{{message}}</h2>
+    <h3>{{message2}}</h3>
+    <input v-model="message" class ="form-control">
+    </div>
+
+    <div id="app-2">
+        <span v-if="conditional == 0">Test v-if {{conditional}}</span>
+        <span v-else-if="conditional == 1">Test v-else-if {{conditional}}</span>
+        <span v-else="conditional == 0">Test v-else {{conditional}}</span>
+
+    </div>
+
+    <div id="app-3">
+        <ol>
+            <!--pour chaque element parcouru on cree un li-->
+            <li v-for= "l in langages">
+                {{l.text}}, {{l.age}}
+            </li>
+        </ol>
+    </div>
+   
+
+    <script type="text/javascript">
+   //ON CREE INSTANCE DE CONSTRUCTEUR VUE.JS
+    var app1 = new Vue({
+        //element graphique el 
+        el: "#app",
+        //on insere de données: databinding
+        data: {
+            message: "Hello World",
+            message2: "Bonjour"
+        }
+    });
+
+
+    var app2 = new Vue({
+        //element graphique el 
+        el: "#app-2",
+        //on insere de données: databinding
+        data: {
+            conditional: 2
+        }
+    });
+
+    var app3 = new Vue({
+        //element graphique el 
+        el: "#app-3",
+        //on insere de données: databinding
+        data: {
+            //tableau d'objets: cle:valeur
+            langages: [
+                {text: 'Javascript', age:3},
+                {text: 'jquery', age:2},
+                {text: 'vue.js', age:6}
+            ]
+        }
+    });
+
+
+
+
+    </script>
+
+    </body>
+</html>

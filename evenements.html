@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello World</title>
+        <script type="text/javascript" src="js/vue.js"></script>
+      
+    
+    </head>
+
+    <body>
+      <div id="example-1">
+        <!--Traitement en dur, sans fonction, pour ajouter à counter-->
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+        <button v-on:click="myMethod">Greet</button>
+        <button v-on:click="sayHello('Hello')">Say Hello</button>
+        
+      </div>
+
+      <div id="example-2">
+        <input v-model="value" v-on:mouseout="monAlert"/>
+      </div>
+     
+
+    <script type="text/javascript">
+    
+    var example1 = new Vue({
+        el: '#example-1',
+        data: {
+            //on set counter à 0
+            counter:0,
+            name: 'Vue.js'
+        },
+        methods: {
+            myMethod: function(event){
+                //event mot reserve qui fait reference à l'evenement courant
+
+                //'this' inside methods point to the vue instance
+                alert('Hello ' + this.name + '!!')
+
+                //pour afficer nom du tag (button) 'event is the native DOM event'
+                if(event){
+                    console.log(event);
+                    alert(event.target.tagName)
+                }
+            },
+
+            sayHello: function (message){
+                alert(message)
+            }
+
+        }
+    })
+
+
+    var example2 = new Vue({
+        el: '#example-2',
+        data: {
+           value:""
+        },
+        methods: {
+            monAlert: function(event){
+                
+                alert(this.value)
+                
+            }
+            
+
+        }
+    })
+
+    
+    </script>
+    </body>
+</html>
